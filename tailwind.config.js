@@ -13,6 +13,8 @@ module.exports = {
       backgroundImage: {
         "home-mobile":
           "url('../public/assets/home/background-home-mobile.jpg')",
+        "home-desktop":
+          "url('../public/assets/home/background-home-desktop.jpg')",
         "destination-mobile":
           "url('../public/assets/destination/background-destination-mobile.jpg')",
       },
@@ -26,6 +28,7 @@ module.exports = {
         homeParagraph: "hsla(231, 79%, 90%, 1)",
         line: "hsla(231, 15%, 26%, 1)",
         techColor: "hsla(230, 35%, 7%, 1)",
+        navColor: "rgba(255, 255, 255, 0.04)",
       },
     },
   },
