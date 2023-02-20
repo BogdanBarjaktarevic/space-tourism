@@ -11,9 +11,9 @@ const Subheader = () => {
       {data.crew.map((crewMember) => (
         <Link
           href={`/crew/${crewMember.name.split(" ")[0].toLowerCase()}`}
-          className={`h-2.5 w-2.5 bg-white rounded-full ${
+          className={`h-2.5 w-2.5 rounded-full ${
             segment === crewMember.name.split(" ")[0].toLowerCase()
-              ? "opacity-100"
+              ? "bg-white"
               : "bg-grayTitleColor"
           }`}
           key={crewMember.name}
