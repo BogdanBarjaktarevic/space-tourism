@@ -21,7 +21,7 @@ const links = [
   {
     id: "03",
     name: "Technology",
-    url: "/technology",
+    url: "/technology/launch",
     activeSegment: "technology",
   },
 ];

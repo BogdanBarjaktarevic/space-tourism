@@ -23,6 +23,10 @@ module.exports = {
           "url('../public/assets/crew/background-crew-mobile.jpg')",
         "crew-mobile":
           "url('../public/assets/crew/background-crew-desktop.jpg')",
+        "tech-mobile":
+          "url('../public/assets/technology/background-technology-mobile.jpg')",
+        "tech-desktop":
+          "url('../public/assets/technology/background-technology-desktop.jpg')",
       },
       fontFamily: {
         paragraphFont: "var(--barlow)",
@@ -35,6 +39,7 @@ module.exports = {
         line: "hsla(231, 15%, 26%, 1)",
         techColor: "hsla(230, 35%, 7%, 1)",
         navColor: "rgba(255, 255, 255, 0.04)",
+        grayTitleColor: "rgba(255, 255, 255, 0.5)",
       },
     },
   },

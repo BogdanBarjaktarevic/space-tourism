@@ -14,7 +14,7 @@ const Subheader = () => {
           className={`h-2.5 w-2.5 bg-white rounded-full ${
             segment === crewMember.name.split(" ")[0].toLowerCase()
               ? "opacity-100"
-              : "opacity-20"
+              : "bg-grayTitleColor"
           }`}
           key={crewMember.name}
         ></Link>

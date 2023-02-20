@@ -22,8 +22,8 @@ const CrewMemberPage = ({ params }: CrewMemberPageProps) => {
   );
 
   return (
-    <div className="text-white flex flex-col items-center px-6 text-center mt-8 md:text-left md:items-start md:p-0 md:max-w-md">
-      <h2 className="opacity-50 uppercase font-titleFont tracking-wide md:text-[32px]">
+    <div className="text-white flex flex-col items-center px-6 text-center mt-8 md:text-left md:items-start md:p-0 md:max-w-md md:min-h-fit md:h-80">
+      <h2 className="text-grayTitleColor uppercase font-titleFont tracking-wide md:text-[32px]">
         {crewMember?.role}
       </h2>
       <h1 className="text-2xl uppercase font-titleFont mb-4 mt-2 md:text-[56px] md:leading-none">
