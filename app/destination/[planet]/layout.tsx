@@ -1,7 +1,9 @@
-"use client";
+interface PlanetLayoutProps {
+  children: React.ReactNode;
+}
 
-const layout = ({ children }) => {
-  return <div>{children}</div>;
+const PlanetLayout = ({ children }: PlanetLayoutProps) => {
+  return <div className="mt-5">{children}</div>;
 };
 
-export default layout;
+export default PlanetLayout;

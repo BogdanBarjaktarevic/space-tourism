@@ -17,6 +17,12 @@ module.exports = {
           "url('../public/assets/home/background-home-desktop.jpg')",
         "destination-mobile":
           "url('../public/assets/destination/background-destination-mobile.jpg')",
+        "destination-desktop":
+          "url('../public/assets/destination/background-destination-desktop.jpg')",
+        "crew-mobile":
+          "url('../public/assets/crew/background-crew-mobile.jpg')",
+        "crew-mobile":
+          "url('../public/assets/crew/background-crew-desktop.jpg')",
       },
       fontFamily: {
         paragraphFont: "var(--barlow)",

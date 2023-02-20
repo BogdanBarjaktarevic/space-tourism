@@ -4,12 +4,14 @@ import Image from "next/image";
 import { useSelectedLayoutSegment } from "next/navigation";
 import data from "../../public/data.json";
 
-const PlanetImage = () => {
+const CrewMember = () => {
   const segment = useSelectedLayoutSegment();
-  const destination = data.destinations.find(
-    (destination) => destination.name.toLowerCase() === segment
+
+  const crewMember = data.crew.find(
+    (crewMember) => crewMember.name.split(" ")[0].toLowerCase() === segment
   );
-  const imageSrc = destination?.images.webp || "";
+
+  const imageSrc = crewMember?.images.webp || "";
 
   return (
     <Image
@@ -17,9 +19,9 @@ const PlanetImage = () => {
       alt="planet"
       width={1000}
       height={1000}
-      className="w-[170px] h-[170px] md:w-[445px] md:h-[445px]"
+      className="w-[227px] h-[237px] md:w-[268px] md:h-full"
     />
   );
 };
 
-export default PlanetImage;
+export default CrewMember;

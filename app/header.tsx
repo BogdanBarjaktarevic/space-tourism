@@ -17,7 +17,7 @@ const links = [
     url: "/destination/moon",
     activeSegment: "destination",
   },
-  { id: "02", name: "Crew", url: "/crew", activeSegment: "crew" },
+  { id: "02", name: "Crew", url: "/crew/douglas", activeSegment: "crew" },
   {
     id: "03",
     name: "Technology",
@@ -30,7 +30,7 @@ interface CategoryLinkProps {
   handleIsOpen: () => void;
   pathname: string | null;
   segment: string | null;
-  activeSegment: string | null;
+  activeSegment: string | undefined;
   url: string;
   name: string;
   id: string;

@@ -7,11 +7,13 @@ const Subheader = () => {
   const segment = useSelectedLayoutSegment();
 
   return (
-    <div>
+    <div className="flex gap-6 justify-center">
       {data.destinations.map((destination) => (
         <Link
           href={`/destination/${destination.name.toLowerCase()}`}
-          className="text-white"
+          className={`text-menuColor uppercase tracking-widest font-extraFont ${
+            segment === destination.name.toLowerCase() ? "border-b-2 pb-2" : ""
+          }`}
           key={destination.name}
         >
           {destination.name}
