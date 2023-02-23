@@ -27,7 +27,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
     <html>
       <head />
       <body
-        className={`${bellefair.variable} ${barlowCond.variable} ${barlow.variable}`}
+        className={`${bellefair.variable} ${barlowCond.variable} ${barlow.variable} bg-bgColor`}
       >
         <Header />
         {children}

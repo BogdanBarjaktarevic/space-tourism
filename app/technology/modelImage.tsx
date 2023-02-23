@@ -22,6 +22,7 @@ const ModelImage = () => {
         width={1000}
         height={1000}
         className="h-[170px] w-full md:hidden"
+        priority
       />
       <Image
         src={imageSrcPortrait}
@@ -29,6 +30,7 @@ const ModelImage = () => {
         width={1000}
         height={1000}
         className="hidden h-[170px] w-full md:block md:h-[527px]"
+        priority
       />
     </>
   );

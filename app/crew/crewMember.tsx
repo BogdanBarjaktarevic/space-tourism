@@ -20,6 +20,7 @@ const CrewMember = () => {
       width={1000}
       height={1000}
       className="w-[227px] h-[237px] md:w-[268px] md:h-full"
+      priority
     />
   );
 };

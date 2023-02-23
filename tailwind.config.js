@@ -40,6 +40,7 @@ module.exports = {
         techColor: "hsla(230, 35%, 7%, 1)",
         navColor: "rgba(255, 255, 255, 0.04)",
         grayTitleColor: "rgba(255, 255, 255, 0.5)",
+        bgColor: "#0C0E17",
       },
     },
   },

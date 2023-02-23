@@ -18,6 +18,7 @@ const PlanetImage = () => {
       width={1000}
       height={1000}
       className="w-[170px] h-[170px] md:w-[445px] md:h-[445px]"
+      priority
     />
   );
 };
