@@ -1,3 +1,4 @@
+import { getTechnology } from "@/lib/technology/getTechnology";
 import ModelImage from "./modelImage";
 import Subheader from "./subheader";
 
@@ -5,7 +6,9 @@ interface TechnologyLayoutProps {
   children: React.ReactNode;
 }
 
-const TechnologyLayout = ({ children }: TechnologyLayoutProps) => {
+const TechnologyLayout = async ({ children }: TechnologyLayoutProps) => {
+  const technology = await getTechnology();
+
   return (
     <div className="min-h-screen bg-tech-mobile bg-cover pt-28 md:bg-tech-desktop">
       <div className="md:container md:m-auto">
@@ -18,7 +21,7 @@ const TechnologyLayout = ({ children }: TechnologyLayoutProps) => {
           <ModelImage />
         </div>
         <div className="md:flex md:flex-1 md:items-center md:gap-20">
-          <Subheader />
+          <Subheader technology={technology} />
           {children}
         </div>
       </div>

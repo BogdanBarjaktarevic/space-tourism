@@ -7,12 +7,15 @@ import data from "../../public/data.json";
 const ModelImage = () => {
   const segment = useSelectedLayoutSegment();
 
-  const model = data.technology.find(
-    (model) => model.name.split(" ")[0].toLowerCase() === segment
-  );
+  const imageSrcLandscape =
+    segment != null
+      ? data.technology[segment as keyof typeof data.technology].landscape
+      : "";
 
-  const imageSrcLandscape = model?.images.landscape || "";
-  const imageSrcPortrait = model?.images.portrait || "";
+  const imageSrcPortrait =
+    segment != null
+      ? data.technology[segment as keyof typeof data.technology].portrait
+      : "";
 
   return (
     <>

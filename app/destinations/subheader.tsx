@@ -1,20 +1,24 @@
 "use client";
+import { DestinationModel } from "@/types/destinations";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-import data from "../../public/data.json";
 
-const Subheader = () => {
+interface SubheaderProps {
+  destinations: DestinationModel[];
+}
+
+const Subheader = ({ destinations }: SubheaderProps) => {
   const segment = useSelectedLayoutSegment();
 
   return (
     <div className="flex gap-6 justify-center">
-      {data.destinations.map((destination) => (
+      {destinations.map((destination) => (
         <Link
-          href={`/destination/${destination.name.toLowerCase()}`}
+          href={`/destinations/${destination.id}`}
           className={`text-menuColor uppercase tracking-widest font-extraFont ${
-            segment === destination.name.toLowerCase() ? "border-b-2 pb-2" : ""
+            segment === destination.id.toString() ? "border-b-2 pb-2" : ""
           }`}
-          key={destination.name}
+          key={destination.id}
         >
           {destination.name}
         </Link>

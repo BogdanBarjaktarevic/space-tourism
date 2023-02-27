@@ -6,14 +6,14 @@ import data from "../../public/data.json";
 
 const PlanetImage = () => {
   const segment = useSelectedLayoutSegment();
-  const destination = data.destinations.find(
-    (destination) => destination.name.toLowerCase() === segment
-  );
-  const imageSrc = destination?.images.webp || "";
+  const imageSource =
+    segment != null
+      ? data.destinations[segment as keyof typeof data.destinations]
+      : "";
 
   return (
     <Image
-      src={imageSrc}
+      src={imageSource}
       alt="planet"
       width={1000}
       height={1000}

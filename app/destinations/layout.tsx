@@ -1,3 +1,4 @@
+import { getDestinations } from "@/lib/destinations/getDestinations";
 import PlanetImage from "./planetImage";
 import Subheader from "./subheader";
 
@@ -5,7 +6,9 @@ interface DestinationLayoutProps {
   children: React.ReactNode;
 }
 
-const DestinationLayout = ({ children }: DestinationLayoutProps) => {
+const DestinationLayout = async ({ children }: DestinationLayoutProps) => {
+  const destinations = await getDestinations();
+
   return (
     <div className="min-h-screen bg-destination-mobile bg-cover pt-28 md:bg-destination-desktop">
       <div className="md:container md:m-auto">
@@ -18,7 +21,7 @@ const DestinationLayout = ({ children }: DestinationLayoutProps) => {
           <PlanetImage />
         </div>
         <div className="md:flex md:flex-col md:items-start">
-          <Subheader />
+          <Subheader destinations={destinations} />
           {children}
         </div>
       </div>

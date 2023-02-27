@@ -1,22 +1,26 @@
 "use client";
+import { CrewModel } from "@/types/crew";
 import Link from "next/link";
 import { useSelectedLayoutSegment } from "next/navigation";
-import data from "../../public/data.json";
 
-const Subheader = () => {
+interface SubheaderProps {
+  crew: CrewModel[];
+}
+
+const Subheader = ({ crew }: SubheaderProps) => {
   const segment = useSelectedLayoutSegment();
 
   return (
     <div className="flex gap-6 justify-center md:justify-start">
-      {data.crew.map((crewMember) => (
+      {crew.map((crewMember) => (
         <Link
-          href={`/crew/${crewMember.name.split(" ")[0].toLowerCase()}`}
+          href={`/crew/${crewMember.id}`}
           className={`h-2.5 w-2.5 rounded-full ${
-            segment === crewMember.name.split(" ")[0].toLowerCase()
+            segment === crewMember.id.toString()
               ? "bg-white"
               : "bg-grayTitleColor"
           }`}
-          key={crewMember.name}
+          key={crewMember.id}
         ></Link>
       ))}
     </div>

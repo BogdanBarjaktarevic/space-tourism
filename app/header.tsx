@@ -14,14 +14,14 @@ const links = [
   {
     id: "01",
     name: "Destination",
-    url: "/destination/moon",
-    activeSegment: "destination",
+    url: "/destinations/1",
+    activeSegment: "destinations",
   },
-  { id: "02", name: "Crew", url: "/crew/douglas", activeSegment: "crew" },
+  { id: "02", name: "Crew", url: "/crew/1", activeSegment: "crew" },
   {
     id: "03",
     name: "Technology",
-    url: "/technology/launch",
+    url: "/technology/1",
     activeSegment: "technology",
   },
 ];

@@ -1,25 +1,23 @@
-import data from "../../../public/data.json";
+import { getTechModel } from "@/lib/technology/getTechModel";
+import { getTechnology } from "@/lib/technology/getTechnology";
 
 export async function generateStaticParams() {
-  const technology = data.technology;
+  const technology = await getTechnology();
 
   return technology.map((techModel) => ({
-    model: techModel.name.split(" ")[0].toLowerCase(),
+    model: techModel.id.toString(),
   }));
 }
-
 interface TechModelProps {
   params: {
     model: string;
   };
 }
 
-const TechModelPage = ({ params }: TechModelProps) => {
+const TechModelPage = async ({ params }: TechModelProps) => {
   const { model } = params;
-
-  const techModel = data.technology.find(
-    (techModel) => techModel.name.split(" ")[0].toLowerCase() === model
-  );
+  const techModel = await getTechModel(model);
+  const selectedTechModel = techModel[0];
 
   return (
     <div className="text-white flex flex-col items-center px-6 text-center mt-8 md:text-left md:items-start md:p-0 md:max-w-md md:min-h-fit md:h-80 md:m-0">
@@ -27,10 +25,10 @@ const TechModelPage = ({ params }: TechModelProps) => {
         The terminology...
       </p>
       <h1 className="text-2xl uppercase font-titleFont mb-4 mt-2 md:text-[56px] md:leading-none">
-        {techModel?.name}
+        {selectedTechModel?.name}
       </h1>
       <p className="text-menuColor font-paragraphFont leading-6 md:text-lg">
-        {techModel?.description}
+        {selectedTechModel?.description}
       </p>
     </div>
   );
