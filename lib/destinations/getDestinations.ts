@@ -1,11 +1,10 @@
-import { DestinationModel } from "@/types/destinations";
+import { prisma } from "./../../prisma/client";
 
-export const getDestinations = async (): Promise<DestinationModel[]> => {
-  const response = await fetch(`${process.env.BASE_URL}/api/destinations`);
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch data");
+export const getDestinations = async () => {
+  try {
+    const destinations = await prisma.destinations.findMany();
+    return destinations;
+  } catch (error) {
+    throw { err: "Error has occured while fetching destinations" };
   }
-
-  return response.json();
 };

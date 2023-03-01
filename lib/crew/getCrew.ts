@@ -1,11 +1,10 @@
-import { CrewModel } from "@/types/crew";
+import { prisma } from "./../../prisma/client";
 
-export const getCrew = async (): Promise<CrewModel[]> => {
-  const response = await fetch(`${process.env.BASE_URL}/api/crew`);
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch data");
+export const getCrew = async () => {
+  try {
+    const crew = await prisma.crew.findMany();
+    return crew;
+  } catch (error) {
+    throw { err: "Error has occured while fetching crew" };
   }
-
-  return response.json();
 };

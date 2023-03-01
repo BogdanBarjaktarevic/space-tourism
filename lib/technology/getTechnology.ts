@@ -1,11 +1,10 @@
-import { TechnologyModel } from "@/types/technology";
+import { prisma } from "./../../prisma/client";
 
-export const getTechnology = async (): Promise<TechnologyModel[]> => {
-  const response = await fetch(`${process.env.BASE_URL}/api/technology`);
-
-  if (!response.ok) {
-    throw new Error("Failed to fetch data");
+export const getTechnology = async () => {
+  try {
+    const tech = await prisma.technology.findMany();
+    return tech;
+  } catch (error) {
+    throw { err: "Error has occured while fetching technology" };
   }
-
-  return response.json();
 };
