@@ -1,6 +1,5 @@
 "use client";
 
-import { usePathname } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../public/assets/shared/logo.svg";
@@ -10,46 +9,44 @@ import { useState } from "react";
 import { useSelectedLayoutSegment } from "next/navigation";
 
 const links = [
-  { id: "00", name: "Home", url: "/" },
+  { name: "Home", url: "/" },
   {
-    id: "01",
     name: "Destination",
     url: "/destinations/1",
-    activeSegment: "destinations",
   },
-  { id: "02", name: "Crew", url: "/crew/1", activeSegment: "crew" },
+  { name: "Crew", url: "/crew/1" },
   {
-    id: "03",
     name: "Technology",
     url: "/technology/1",
-    activeSegment: "technology",
   },
 ];
 
 interface CategoryLinkProps {
   handleIsOpen: () => void;
-  pathname: string | null;
   segment: string | null;
-  activeSegment: string | undefined;
   url: string;
   name: string;
-  id: string;
+  numberOfLink: number;
 }
 
 const CategoryLink = ({
   handleIsOpen,
-  pathname,
   segment,
-  activeSegment,
   url,
   name,
-  id,
+  numberOfLink,
 }: CategoryLinkProps) => {
-  const isActiveLink = segment === activeSegment || pathname === url;
+  let activeUrl = url;
+  if (activeUrl !== "/") {
+    activeUrl = activeUrl?.split("/")[1];
+  }
+
+  const isActiveSegment = activeUrl === segment;
+
   return (
     <div className="font-extraFont text-xl flex justify-between md:flex-col">
       <div className="">
-        <span className="font-bold">{id}</span>
+        <span className="font-bold">{`0${numberOfLink}`}</span>
         <Link
           href={url}
           className="ml-2.5 uppercase tracking-widest"
@@ -58,7 +55,7 @@ const CategoryLink = ({
           {name}
         </Link>
       </div>
-      {isActiveLink && (
+      {isActiveSegment && (
         <div className="w-1 bg-white h-auto md:h-0.5 md:w-full"></div>
       )}
     </div>
@@ -67,7 +64,6 @@ const CategoryLink = ({
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const pathname = usePathname();
   const segment = useSelectedLayoutSegment();
 
   const handleIsOpen = () => {
@@ -103,16 +99,14 @@ const Header = () => {
           />
         </div>
         <div className="ml-6 mt-16 flex flex-col gap-8 md:flex-row md:mt-0 md:justify-center">
-          {links.map((link) => (
+          {links.map((link, i) => (
             <CategoryLink
-              key={link.id}
+              key={link.url}
               handleIsOpen={handleIsOpen}
-              pathname={pathname}
               segment={segment}
-              activeSegment={link.activeSegment}
               name={link.name}
               url={link.url}
-              id={link.id}
+              numberOfLink={i + 1}
             />
           ))}
         </div>
