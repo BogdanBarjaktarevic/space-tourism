@@ -40,7 +40,6 @@ const CategoryLink = ({
   if (activeUrl !== "/") {
     activeUrl = activeUrl?.split("/")[1];
   }
-  console.log("activeUrl:", activeUrl);
 
   const isActiveSegment = activeUrl === segment;
 
