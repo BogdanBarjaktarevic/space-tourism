@@ -40,6 +40,7 @@ const CategoryLink = ({
   if (activeUrl !== "/") {
     activeUrl = activeUrl?.split("/")[1];
   }
+  console.log("activeUrl:", activeUrl);
 
   const isActiveSegment = activeUrl === segment;
 
@@ -64,7 +65,7 @@ const CategoryLink = ({
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
-  const segment = useSelectedLayoutSegment();
+  const segment = useSelectedLayoutSegment() || "/";
 
   const handleIsOpen = () => {
     setIsOpen(!isOpen);
