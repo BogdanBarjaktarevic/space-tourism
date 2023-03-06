@@ -1,6 +1,6 @@
+import Subheader from "@/components/subheader";
 import { getTechnology } from "@/lib/technology/getTechnology";
 import ModelImage from "./modelImage";
-import Subheader from "./subheader";
 
 interface TechnologyLayoutProps {
   children: React.ReactNode;
@@ -21,7 +21,9 @@ const TechnologyLayout = async ({ children }: TechnologyLayoutProps) => {
           <ModelImage />
         </div>
         <div className="md:flex md:flex-1 md:items-center md:gap-20">
-          <Subheader technology={technology} />
+          <div className="flex gap-6 justify-center md:justify-start md:flex-col">
+            <Subheader links={technology} linkGroup="technology" />
+          </div>
           {children}
         </div>
       </div>

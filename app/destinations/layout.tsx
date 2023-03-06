@@ -1,6 +1,6 @@
 import { getDestinations } from "@/lib/destinations/getDestinations";
 import PlanetImage from "./planetImage";
-import Subheader from "./subheader";
+import Subheader from "../../components/subheader";
 
 interface DestinationLayoutProps {
   children: React.ReactNode;
@@ -21,7 +21,9 @@ const DestinationLayout = async ({ children }: DestinationLayoutProps) => {
           <PlanetImage />
         </div>
         <div className="md:flex md:flex-col md:items-start">
-          <Subheader destinations={destinations} />
+          <div className="flex gap-6 justify-center">
+            <Subheader links={destinations} linkGroup="destinations" />
+          </div>
           {children}
         </div>
       </div>

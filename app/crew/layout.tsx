@@ -1,6 +1,6 @@
+import Subheader from "@/components/subheader";
 import { getCrew } from "@/lib/crew/getCrew";
 import CrewMember from "./crewMember";
-import Subheader from "./subheader";
 
 interface CrewLayoutProps {
   children: React.ReactNode;
@@ -23,7 +23,9 @@ const CrewLayout = async ({ children }: CrewLayoutProps) => {
         </div>
         <div className="md:grid md:place-content-center md:justify-start md:gap-y-28">
           <div className="md:order-2">
-            <Subheader crew={crew} />
+            <div className="flex gap-6 justify-center md:justify-start">
+              <Subheader links={crew} linkGroup="crew" />
+            </div>
           </div>
           {children}
         </div>
