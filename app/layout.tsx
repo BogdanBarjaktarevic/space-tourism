@@ -24,7 +24,7 @@ interface RootLayoutProps {
 
 const RootLayout = ({ children }: RootLayoutProps) => {
   return (
-    <html>
+    <html lang="en">
       <head />
       <body
         className={`${bellefair.variable} ${barlowCond.variable} ${barlow.variable} bg-bgColor`}

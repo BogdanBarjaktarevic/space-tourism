@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useSelectedLayoutSegment } from "next/navigation";
+import clsx from "clsx";
+import { useState } from "react";
 import Logo from "../public/assets/shared/logo.svg";
 import HamburgerMenu from "../public/assets/shared/icon-hamburger.svg";
 import CloseIcon from "../public/assets/shared/icon-close.svg";
-import { useState } from "react";
-import { useSelectedLayoutSegment } from "next/navigation";
 
 const links = [
   { name: "Home", url: "/" },
@@ -85,9 +86,13 @@ const Header = () => {
       )}
 
       <div
-        className={`text-white fixed right-0 top-0 bottom-0 backdrop-blur-2xl w-4/6 transition-transform ${
-          isOpen ? "translate-x-0" : "translate-x-full md:static"
-        } md:translate-x-0 md:static md:bg-navColor md:backdrop-blur-2xl md:py-10`}
+        className={clsx(
+          "text-white fixed right-0 top-0 bottom-0 backdrop-blur-2xl w-4/6 transition-transform md:translate-x-0 md:static md:bg-navColor md:backdrop-blur-2xl md:py-10",
+          {
+            "translate-x-0": isOpen,
+            "translate-x-full md:static": !isOpen,
+          }
+        )}
       >
         <div className="mt-8 flex justify-end mr-6 md:hidden">
           <Image
