@@ -1,6 +1,12 @@
 import { getCrew } from "@/lib/crew/getCrew";
 import { getCrewMember } from "@/lib/crew/getCrewMember";
 
+interface CrewMemberPageProps {
+  params: {
+    member: string;
+  };
+}
+
 export async function generateStaticParams() {
   const crew = await getCrew();
 
@@ -9,9 +15,14 @@ export async function generateStaticParams() {
   }));
 }
 
-interface CrewMemberPageProps {
-  params: {
-    member: string;
+export async function generateMetadata({ params }: CrewMemberPageProps) {
+  const { member } = params;
+  const crewMember = await getCrewMember(member);
+  const selectedCrewMember = crewMember[0];
+
+  return {
+    title: selectedCrewMember.name,
+    description: selectedCrewMember.bio,
   };
 }
 

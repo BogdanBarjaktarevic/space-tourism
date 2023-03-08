@@ -1,6 +1,12 @@
 import { getTechModel } from "@/lib/technology/getTechModel";
 import { getTechnology } from "@/lib/technology/getTechnology";
 
+interface TechModelProps {
+  params: {
+    model: string;
+  };
+}
+
 export async function generateStaticParams() {
   const technology = await getTechnology();
 
@@ -8,9 +14,15 @@ export async function generateStaticParams() {
     model: techModel.id.toString(),
   }));
 }
-interface TechModelProps {
-  params: {
-    model: string;
+
+export async function generateMetadata({ params }: TechModelProps) {
+  const { model } = params;
+  const techModel = await getTechModel(model);
+  const selectedTechModel = techModel[0];
+
+  return {
+    title: selectedTechModel.name,
+    description: selectedTechModel.description,
   };
 }
 
