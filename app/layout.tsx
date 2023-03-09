@@ -2,6 +2,7 @@ import { Bellefair, Barlow_Condensed, Barlow } from "@next/font/google";
 import { Metadata } from "next";
 import "./globals.css";
 import Header from "./header";
+import AnalyticsWrapper from "@/components/analytics";
 
 const bellefair = Bellefair({
   subsets: ["latin"],
@@ -53,6 +54,7 @@ const RootLayout = ({ children }: RootLayoutProps) => {
       >
         <Header />
         {children}
+        <AnalyticsWrapper />
       </body>
     </html>
   );
